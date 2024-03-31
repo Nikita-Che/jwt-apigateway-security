@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("c")
+@RequestMapping("children")
 public class ChildrenController {
 
-    @GetMapping
+    @GetMapping("hello")
     public String helloController() {
         return "Hello from children";
     }
