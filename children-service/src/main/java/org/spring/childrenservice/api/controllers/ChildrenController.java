@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.spring.childrenservice.persistance.model.Children;
 import org.spring.childrenservice.persistance.repository.ChildrenRepository;
 import org.spring.childrenservice.usecases.ChildrenService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
