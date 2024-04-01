@@ -9,6 +9,7 @@
         <module name="api-gateway" />
         <module name="training-service" />
         <module name="api-gateway-eureka" />
+        <module name="identity-service" />
         <module name="children-service" />
       </profile>
     </annotationProcessing>
@@ -22,6 +23,7 @@
       <module name="api-gateway-eureka" options="-parameters" />
       <module name="children-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="identity-service" options="-parameters" />
       <module name="training-service" options="-parameters" />
     </option>
   </component>

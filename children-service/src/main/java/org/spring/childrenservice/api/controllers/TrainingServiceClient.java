@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/children")
-public class TrainingController {
+public class TrainingServiceClient {
 
     private final ChildrenService childrenService;
     private final String trainingServiceUrl = "http://localhost:8765"; // URL микросервиса training
