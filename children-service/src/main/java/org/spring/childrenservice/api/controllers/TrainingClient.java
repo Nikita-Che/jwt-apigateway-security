@@ -1,7 +1,6 @@
 package org.spring.childrenservice.api.controllers;
 
 import lombok.RequiredArgsConstructor;
-import org.spring.childrenservice.persistance.model.Children;
 import org.spring.childrenservice.usecases.ChildrenService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,18 +25,8 @@ public class TrainingClient {
     }
 
     @GetMapping("/training/{id}")
-    public ResponseEntity<String> getTrainingById() {
-        ResponseEntity<String> response = restTemplate.getForEntity(trainingServiceUrl + "/training/{id}", String.class);
+    public ResponseEntity<String> getTrainingById(@PathVariable Long id) {
+        ResponseEntity<String> response = restTemplate.getForEntity(trainingServiceUrl + "/training/" + id, String.class);
         return ResponseEntity.ok(response.getBody());
     }
-
-//    @GetMapping("{id}")
-//    public ResponseEntity<Children> getById(@PathVariable Long id) {
-//        Children child = childrenService.getById(id);
-//        if (child != null) {
-//            return ResponseEntity.ok(child);
-//        } else {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
 }

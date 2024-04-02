@@ -27,14 +27,11 @@ spring:
           uri: lb://children-service
           predicates:
             - Path=/children/**
-#          filters:
-#            - AuthenticationFilter // это класс тут и он идет и берет в аутентификации токен
+        #          filters:
+        #            - AuthenticationFilter // это класс тут и он идет и берет в аутентификации токен
+
 
         - id: training-service
           uri: lb://training-service
           predicates:
-            - Path=/training/**+
-#          filters:
-#            - AuthenticationFilter
-
-
+            - Path=/training/**
