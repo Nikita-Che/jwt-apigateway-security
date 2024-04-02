@@ -17,9 +17,8 @@ import java.util.Collections;
 public final class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
     @Override
-    public void commence(HttpServletRequest request,
-                         HttpServletResponse response,
-                         AuthenticationException exception) throws IOException {
+    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception)
+            throws IOException {
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         String body = new ObjectMapper().writeValueAsString(Collections.singletonMap("error", "Unauthorized Error"));

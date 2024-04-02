@@ -16,6 +16,11 @@ public class Children {
 
     private String name;
 
+//    private int training; // засетать на ребенка
+    //посмотреть в трейнинги
+    //и по рест темплейту запросить из их табилцы
+    //в чилдренах должен быть ендпоинт берет айди ребенка и передает в методе который запрашивает у трайнинга айди.
+
 //    @OneToOne
 //    @JoinTable(name = "training",
 //            schema = "trainingdb",
