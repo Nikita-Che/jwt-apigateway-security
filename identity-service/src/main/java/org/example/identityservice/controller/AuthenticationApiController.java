@@ -22,14 +22,14 @@ import java.util.Map;
 @Tag(name = "Authentication Controller", description = "API for working with authentication")
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/auth/")
+@RequestMapping
 public class AuthenticationApiController {
 
     private final JwtTokenProvider jwtTokenProvider;
     private final AuthenticationServiceImpl authenticationService;
 
     @Operation(summary = "Authenticate user")
-    @PostMapping("login")
+    @PostMapping("/login")
     public ResponseEntity<Map<String, String>> login(@Valid @RequestBody AuthenticationRequestDto requestDto) {
         AuthenticationUserDto user = authenticationService.findByEmailAndPassword(requestDto);
         if (user == null) {

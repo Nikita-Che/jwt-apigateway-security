@@ -11,6 +11,8 @@ logging:
     console: "%C{1.} [%-5level] %d{HH:mm:ss}- %msg%n"
 
 spring:
+  application:
+    name: api-gateway
   cloud:
     gateway:
       discovery:
@@ -18,20 +20,23 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
+
         - id: identity-service
           uri: lb://identity-service
           predicates:
-            - Path=/auth/**
+            - Path=/identity/**
 
         - id: children-service
           uri: lb://children-service
           predicates:
             - Path=/children/**
-        #          filters:
-        #            - AuthenticationFilter // это класс тут и он идет и берет в аутентификации токен
-
+          filters:
+            - AuthenticationFilter
+#           надо зайти в этот класс. где то-взять JWT токен. и пришить ко всем запросам Header Key Value с токеном
 
         - id: training-service
           uri: lb://training-service
           predicates:
             - Path=/training/**
+          filters:
+            - AuthenticationFilter
