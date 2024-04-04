@@ -1,0 +1,44 @@
+spring:
+ cloud:
+   gateway:
+     routes:
+       - id: identity-service
+         uri: lb://identity-service
+         predicates:
+           - Path=/identity/**
+         filters:
+           - AuthenticationFilter
+
+       - id: children-service
+         uri: lb://children-service
+         predicates:
+           - Path=/children/**
+         filters:
+           - AuthenticationFilter
+
+       - id: training-service
+         uri: lb://training-service
+         predicates:
+           - Path=/training/**
+         filters:
+           - AuthenticationFilter
+
+       - id: guru-identity-service
+         uri: lb://guru-identity-service
+         predicates:
+           - Path=/auth/**
+
+ application:
+   name: JAVAGURU-GATEWAY
+
+logging:
+  pattern:
+    console: "%C{1.} [%-5level] %d{HH:mm:ss}- %msg%n"
+
+server:
+  port: 8765
+
+eureka:
+  client:
+    service-url:
+      defaultZone : http://localhost:8761/eureka/

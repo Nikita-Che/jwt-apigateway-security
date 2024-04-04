@@ -1,0 +1,10 @@
+by\javaguru\IdentityServiceApplication.class
+by\javaguru\controller\AuthController.class
+by\javaguru\service\JwtService.class
+by\javaguru\dto\AuthRequest.class
+by\javaguru\service\AuthService.class
+by\javaguru\config\CustomUserDetails.class
+by\javaguru\repository\UserCredentialRepository.class
+by\javaguru\config\CustomUserDetailsService.class
+by\javaguru\config\AuthConfig.class
+by\javaguru\entity\UserCredential.class

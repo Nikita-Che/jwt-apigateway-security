@@ -1,0 +1,10 @@
+C:\Users\nikita\Desktop\GitHub\homework\jwt-apigateway-security\javaguru-identity-service\src\main\java\by\javaguru\controller\AuthController.java
+C:\Users\nikita\Desktop\GitHub\homework\jwt-apigateway-security\javaguru-identity-service\src\main\java\by\javaguru\config\CustomUserDetails.java
+C:\Users\nikita\Desktop\GitHub\homework\jwt-apigateway-security\javaguru-identity-service\src\main\java\by\javaguru\dto\AuthRequest.java
+C:\Users\nikita\Desktop\GitHub\homework\jwt-apigateway-security\javaguru-identity-service\src\main\java\by\javaguru\service\JwtService.java
+C:\Users\nikita\Desktop\GitHub\homework\jwt-apigateway-security\javaguru-identity-service\src\main\java\by\javaguru\config\AuthConfig.java
+C:\Users\nikita\Desktop\GitHub\homework\jwt-apigateway-security\javaguru-identity-service\src\main\java\by\javaguru\IdentityServiceApplication.java
+C:\Users\nikita\Desktop\GitHub\homework\jwt-apigateway-security\javaguru-identity-service\src\main\java\by\javaguru\repository\UserCredentialRepository.java
+C:\Users\nikita\Desktop\GitHub\homework\jwt-apigateway-security\javaguru-identity-service\src\main\java\by\javaguru\config\CustomUserDetailsService.java
+C:\Users\nikita\Desktop\GitHub\homework\jwt-apigateway-security\javaguru-identity-service\src\main\java\by\javaguru\entity\UserCredential.java
+C:\Users\nikita\Desktop\GitHub\homework\jwt-apigateway-security\javaguru-identity-service\src\main\java\by\javaguru\service\AuthService.java

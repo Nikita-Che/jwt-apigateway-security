@@ -6,15 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="api-gateway" />
+        <module name="javaguru-identity-service" />
         <module name="training-service" />
         <module name="api-gateway-eureka" />
-        <module name="identity-service" />
         <module name="children-service" />
+        <module name="api-gateway" />
+        <module name="javaguru-gateway" />
+        <module name="identity-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eureka-server" target="17" />
+      <module name="javaguru-identity-service (1) (by.javaguru)" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -24,6 +27,9 @@
       <module name="children-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="identity-service" options="-parameters" />
+      <module name="javaguru-gateway" options="-parameters" />
+      <module name="javaguru-identity-service" options="-parameters" />
+      <module name="javaguru-identity-service (1) (by.javaguru)" options="-parameters" />
       <module name="training-service" options="-parameters" />
     </option>
   </component>
