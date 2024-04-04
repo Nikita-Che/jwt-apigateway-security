@@ -15,13 +15,4 @@ public class Training {
     long id;
 
     private String name;
-
-//    @OneToOne
-//    @JoinTable(name = "children",
-//            schema = "childrendb",
-//            joinColumns = @JoinColumn(name = "id"))
-//    private Children children;
-//
-//    public Training(String name, Long traineeID) {
-//    }
 }

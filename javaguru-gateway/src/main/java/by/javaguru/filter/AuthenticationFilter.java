@@ -38,10 +38,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
                     authHeader = authHeader.substring(7);
                 }
                 try {
-//                    //REST call to AUTH service
                     template.getForObject("http://localhost:8084/auth/validate?token=" + authHeader, String.class);
-//                    String url = "http://IDENTITY-SERVICE/auth/validate?token=" + authHeader;
-//                    template.getForObject("http://localhost:8084/auth/validate?token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0NCIsImlhdCI6MTcwNTY1NTMyMywiZXhwIjoxNzA1NjU3MTIzfQ.tbsyVAS8e1vAt7vWCcW_XZltApov1u4C143igiKnRdU", String.class);
                     jwtUtil.validateToken(authHeader);
 
                 } catch (Exception e) {

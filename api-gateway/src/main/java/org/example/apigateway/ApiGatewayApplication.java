@@ -1,6 +1,5 @@
 package org.example.apigateway;
 
-import org.example.apigateway.controller.AuthController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
