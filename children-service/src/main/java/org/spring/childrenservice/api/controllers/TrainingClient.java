@@ -13,23 +13,25 @@ import org.springframework.web.client.RestTemplate;
 public class TrainingClient {
 
     private final ChildrenService childrenService;
-    private final String trainingServiceUrl = "http://localhost:8765"; // URL микросервиса training
+    private final String trainingServiceUrl = "http://localhost:8765"; // URL микросервиса training через гейтвей
+    private final String trainingServiceUrlFid = "http://localhost:8091"; // URL микросервиса training прямой
     private final String authTokenUrl = "http://localhost:8765/auth/token";
     private final RestTemplate restTemplate;
 
-
-    @PostMapping("/token")
-    public String getToken(@RequestBody AuthRequest authRequest) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
-        HttpEntity<AuthRequest> requestEntity = new HttpEntity<>(authRequest, headers);
-
-        ResponseEntity<String> responseEntity = restTemplate.postForEntity(authTokenUrl, requestEntity, String.class);
-        String jwttoken = responseEntity.getBody();
-        return jwttoken;
+    @GetMapping("/training")
+    public ResponseEntity<String> getTrainingList() {
+        ResponseEntity<String> response = restTemplate.getForEntity(trainingServiceUrlFid + "/training/all", String.class);
+        return ResponseEntity.ok(response.getBody());
     }
 
+    @GetMapping("/training/{id}")
+    public ResponseEntity<String> getTrainingById(@PathVariable Long id) {
+        ResponseEntity<String> response = restTemplate.getForEntity(trainingServiceUrlFid + "/training/" + id, String.class);
+        return ResponseEntity.ok(response.getBody());
+    }
+
+    //убери в метод  AuthRequest authRequest = new AuthRequest("Vasya", "root"); Потому что это костыль
+    // да и вообще такой запрос это костыль
     @GetMapping("/trainigheader")
     public ResponseEntity<String> getTrainingListWithHeader() {
         AuthRequest authRequest = new AuthRequest("Vasya", "root");
@@ -56,15 +58,15 @@ public class TrainingClient {
         return response;
     }
 
-    @GetMapping("/training")
-    public ResponseEntity<String> getTrainingList() {
-        ResponseEntity<String> response = restTemplate.getForEntity(trainingServiceUrl + "/training/all", String.class);
-        return ResponseEntity.ok(response.getBody());
-    }
+    @PostMapping("/token")
+    public String getToken(@RequestBody AuthRequest authRequest) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
 
-    @GetMapping("/training/{id}")
-    public ResponseEntity<String> getTrainingById(@PathVariable Long id) {
-        ResponseEntity<String> response = restTemplate.getForEntity(trainingServiceUrl + "/training/" + id, String.class);
-        return ResponseEntity.ok(response.getBody());
+        HttpEntity<AuthRequest> requestEntity = new HttpEntity<>(authRequest, headers);
+
+        ResponseEntity<String> responseEntity = restTemplate.postForEntity(authTokenUrl, requestEntity, String.class);
+        String jwttoken = responseEntity.getBody();
+        return jwttoken;
     }
 }

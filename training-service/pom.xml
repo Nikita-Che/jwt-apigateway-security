@@ -11,7 +11,7 @@
     <groupId>org.spring</groupId>
     <artifactId>training-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>training-service</name>
+    <name>micro-training-service</name>
     <description>training-service</description>
     <properties>
         <java.version>17</java.version>

@@ -11,7 +11,7 @@
 	<groupId>by.javaguru</groupId>
 	<artifactId>javaguru-identity-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>identity-service</name>
+	<name>identity-service-javaGuru</name>
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2022.0.1</spring-cloud.version>

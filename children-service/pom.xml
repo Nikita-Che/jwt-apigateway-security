@@ -11,7 +11,7 @@
 	<groupId>org.spring</groupId>
 	<artifactId>children-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>children-service</name>
+	<name>micro-children-service</name>
 	<description>children-service</description>
 	<properties>
 		<java.version>17</java.version>
