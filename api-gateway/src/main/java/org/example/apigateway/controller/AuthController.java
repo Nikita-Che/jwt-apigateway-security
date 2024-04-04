@@ -1,15 +1,10 @@
 package org.example.apigateway.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.*;
-import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -20,44 +15,30 @@ public class AuthController {
 
     public String getJwt() {
         String token = "";
+        //получаем мапу сходив в микросервис identity
         ResponseEntity<Map<String, String>> mapJwt = getJwtFromAuthService();
-
-
         // вот тут надо проверить есть ли токен у человека.
-        Map<String, String> responseBody = mapJwt.getBody();
-        if (responseBody != null && responseBody.containsKey("token")) {
-            System.out.println(token);
-            token = responseBody.get("token");
-        } else {
-            System.out.println("Токен не найден в ответе");
-        }
+
+        //возвращаем из метода просто строку с токеном
+        // путем преобразования  ResponseEntity<Map<String, String>> в Map<String, String>
+        // а потом просто возвращаем строку token
+
         return token;
     }
 
     public ResponseEntity<Map<String, String>> getJwtFromAuthService() {
-        // разбить на части и захардкодить
-        try {
-            Map<String, String> requestMap = new HashMap<>();
-            requestMap.put("email", "n@n.ru");
-            requestMap.put("password", "root");
+        //в этом методе надо сходить в identity
+        // передать туда логи пароль
+        // и получить ResponseEntity<Map<String, String>> с ответом
+        //
+        // и  вернуть в метод  getJwt
 
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_JSON);
-            HttpEntity<Map<String, String>> requestEntity = new HttpEntity<>(requestMap, headers);
+//            Map<String, String> requestMap = new HashMap<>();
+//            requestMap.put("email", "n@n.ru");
+//            requestMap.put("password", "root");
 
-            ResponseEntity<String> responseEntity = restTemplate.exchange(
-                    "http://localhost:8765/identity-service/login",
-                    HttpMethod.POST,
-                    requestEntity,
-                    String.class
-            );
-            Map<String, String> responseBody = new HashMap<>();
-            responseBody.put("token", responseEntity.getBody());
-
-            return ResponseEntity.status(responseEntity.getStatusCode()).body(responseBody);
-        } catch (ResourceAccessException e) {
-            e.printStackTrace(); // или другие действия
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-        }
+        ResponseEntity <Map<String, String>> entity = (ResponseEntity<Map<String, String>>) ResponseEntity.ok();
+//            return ResponseEntity.status(responseEntity.getStatusCode()).body(responseBody);
+        return entity;
     }
 }

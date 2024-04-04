@@ -32,7 +32,6 @@ spring:
             - Path=/children/**
           filters:
             - AuthenticationFilter
-#           надо зайти в этот класс. где то-взять JWT токен. и пришить ко всем запросам Header Key Value с токеном
 
         - id: training-service
           uri: lb://training-service
