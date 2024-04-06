@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../children-service/children-service.iml" filepath="$PROJECT_DIR$/../children-service/children-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/identity-service/identity-service.iml" filepath="$PROJECT_DIR$/identity-service/identity-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaguru-gateway/javaguru-gateway.iml" filepath="$PROJECT_DIR$/javaguru-gateway/javaguru-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaguru-identity-service/javaguru-identity-service.iml" filepath="$PROJECT_DIR$/javaguru-identity-service/javaguru-identity-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/jwt-apigateway-security.iml" filepath="$PROJECT_DIR$/jwt-apigateway-security.iml" />
       <module fileurl="file://$PROJECT_DIR$/training-service/training-service.iml" filepath="$PROJECT_DIR$/training-service/training-service.iml" />

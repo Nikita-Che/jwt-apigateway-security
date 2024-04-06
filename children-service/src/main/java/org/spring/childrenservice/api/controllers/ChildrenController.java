@@ -1,8 +1,11 @@
 package org.spring.childrenservice.api.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.spring.childrenservice.persistance.model.Children;
 import org.spring.childrenservice.persistance.repository.ChildrenRepository;
+import org.spring.childrenservice.usecases.ChildrenKafkaService;
 import org.spring.childrenservice.usecases.ChildrenService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +18,9 @@ import java.util.List;
 @RequestMapping("/children")
 public class ChildrenController {
 
+    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
     private final ChildrenService childrenService;
+    private final ChildrenKafkaService childrenKafkaService;
 
     @Value("${eureka.instance.instance-id}")
     private String port;
@@ -28,6 +33,7 @@ public class ChildrenController {
 
     @GetMapping("/all")
     public List<Children> getAll() {
+        childrenKafkaService.createLogMessage("Get all children");
         return childrenService.findAll();
     }
 
@@ -43,7 +49,9 @@ public class ChildrenController {
 
     @PostMapping
     public Children save(@RequestBody Children children) {
-        return childrenRepository.save(children);
+        Children saved = childrenRepository.save(children);
+        childrenKafkaService.createChildrenMessage(saved);
+        return saved;
     }
 
     @DeleteMapping("{id}")
