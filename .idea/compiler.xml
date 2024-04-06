@@ -13,6 +13,7 @@
         <module name="api-gateway" />
         <module name="javaguru-gateway" />
         <module name="identity-service" />
+        <module name="logging-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -30,6 +31,7 @@
       <module name="javaguru-gateway" options="-parameters" />
       <module name="javaguru-identity-service" options="-parameters" />
       <module name="javaguru-identity-service (1) (by.javaguru)" options="-parameters" />
+      <module name="logging-service" options="-parameters" />
       <module name="training-service" options="-parameters" />
     </option>
   </component>

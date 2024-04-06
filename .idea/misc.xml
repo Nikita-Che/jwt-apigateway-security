@@ -18,6 +18,7 @@
         <option value="$PROJECT_DIR$/javaguru-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/../../../JAVA GURU/JAVA GURU/javaguru-identity-service/pom.xml" />
         <option value="$PROJECT_DIR$/javaguru-identity-service/pom.xml" />
+        <option value="$PROJECT_DIR$/logging-service/pom.xml" />
       </list>
     </option>
   </component>
