@@ -2,34 +2,41 @@ spring:
  cloud:
    gateway:
      routes:
-       - id: identity-service
-         uri: lb://identity-service
+#       - id: identity-service
+#         uri: lb://identity-service
+#         predicates:
+#           - Path=/identity/**
+#         filters:
+#           - AuthenticationFilter
+
+       - id: keycloack-server
+         uri: lb://keycloack-server
          predicates:
-           - Path=/identity/**
-         filters:
-           - AuthenticationFilter
+           - Path=/auth/**
 
        - id: children-service
          uri: lb://children-service
          predicates:
            - Path=/children/**
-         filters:
-           - AuthenticationFilter
 
        - id: training-service
          uri: lb://training-service
          predicates:
            - Path=/training/**
-         filters:
-           - AuthenticationFilter
 
-       - id: guru-identity-service
-         uri: lb://guru-identity-service
-         predicates:
-           - Path=/auth/**
+
+#       - id: guru-identity-service
+#         uri: lb://guru-identity-service
+#         predicates:
+#           - Path=/auth/**
 
  application:
    name: JAVAGURU-GATEWAY
+ security:
+   oauth2:
+     resourceserver:
+       jwt:
+         issuer-uri: http://localhost:8080/realms/user-realm
 
 logging:
   pattern:

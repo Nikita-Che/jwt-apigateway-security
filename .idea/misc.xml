@@ -21,6 +21,7 @@
         <option value="$PROJECT_DIR$/logging-service/pom.xml" />
         <option value="$PROJECT_DIR$/../keycloack-server/pom.xml" />
         <option value="$PROJECT_DIR$/keycloack-server/pom.xml" />
+        <option value="$PROJECT_DIR$/../../keycloack-server/pom.xml" />
       </list>
     </option>
   </component>
