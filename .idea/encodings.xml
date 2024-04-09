@@ -7,6 +7,7 @@
     <file url="file://$PROJECT_DIR$/identity-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/javaguru-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/javaguru-identity-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/keycloack-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/logging-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/training-service/src/main/java" charset="UTF-8" />
   </component>
